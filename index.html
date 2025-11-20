@@ -42,7 +42,7 @@
       <div class="text-2xl font-bold text-white tracking-tighter text-glow">VivoMejor</div>
       <div class="flex items-center gap-4">
         <button id="install-btn"
-          class="hidden bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition">
+          class="hidden bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition shadow-[0_0_15px_rgba(255,255,255,0.3)]">
           Instalar App 📲
         </button>
         <a href="#" id="login-link"
@@ -529,6 +529,47 @@
     <footer class="py-6 text-center text-zinc-600 text-xs border-t border-zinc-900 mt-auto">
       Desarrollado por Joseph Ivan Cachay Vargas
     </footer>
+  </div>
+
+  <!-- Install Instructions Modal -->
+  <div id="install-modal"
+    class="hidden fixed inset-0 z-[60] flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative animate-blob">
+      <button id="close-install-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+
+      <div class="text-center mb-6">
+        <div
+          class="w-16 h-16 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center text-black text-2xl font-bold">
+          VM</div>
+        <h3 class="text-xl font-bold text-white mb-2">Instalar VivoMejor</h3>
+        <p class="text-sm text-gray-400">Instala la app para una mejor experiencia.</p>
+      </div>
+
+      <div class="space-y-4 text-sm text-gray-300">
+        <div class="flex items-start gap-3">
+          <span class="text-xl">🍎</span>
+          <div>
+            <p class="font-bold text-white">iPhone / iPad</p>
+            <p>Toca el botón <span class="font-bold">Compartir</span> <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_Share_icon.svg/1200px-Apple_Share_icon.svg.png"
+                class="w-4 h-4 inline invert"> y selecciona <span class="font-bold">"Agregar a Inicio"</span>.</p>
+          </div>
+        </div>
+        <div class="border-t border-zinc-800 my-2"></div>
+        <div class="flex items-start gap-3">
+          <span class="text-xl">🤖</span>
+          <div>
+            <p class="font-bold text-white">Android</p>
+            <p>Toca el menú (⋮) y selecciona <span class="font-bold">"Instalar aplicación"</span>.</p>
+          </div>
+        </div>
+      </div>
+
+      <button id="close-modal-btn"
+        class="w-full mt-6 bg-white text-black font-bold py-3 rounded-xl hover:bg-gray-200 transition">
+        Entendido
+      </button>
+    </div>
   </div>
 
   <script type="module" src="js/app.js"></script>

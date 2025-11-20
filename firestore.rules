@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Función de ayuda para verificar si el usuario es dueño del documento
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Colección de Tareas (Tasks)
+    match /tasks/{taskId} {
+      // Permitir crear si el userId del nuevo documento coincide con el usuario logueado
+      allow create: if isOwner(request.resource.data.userId);
+      // Permitir leer/editar/borrar si el userId del documento existente coincide
+      allow read, update, delete: if isOwner(resource.data.userId);
+    }
+
+    // Colección de Metas (Goals)
+    match /goals/{goalId} {
+      allow create: if isOwner(request.resource.data.userId);
+      allow read, update, delete: if isOwner(resource.data.userId);
+    }
+
+    // Colección de Horario (Schedule)
+    match /schedule/{activityId} {
+      allow create: if isOwner(request.resource.data.userId);
+      allow read, update, delete: if isOwner(resource.data.userId);
+    }
+    
+    // Colección de Usuarios (Users) - Opcional, por si guardas perfiles
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+  }
+}

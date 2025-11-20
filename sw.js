@@ -13,7 +13,8 @@ const urlsToCache = [
     'https://cdn.tailwindcss.com',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js',
-    'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js'
+    'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js',
+    '/assets/icon.png'
 ];
 
 // Install Service Worker

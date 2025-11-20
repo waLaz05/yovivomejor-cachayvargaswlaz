@@ -3,35 +3,59 @@ import { initTasks } from "./tasks.js";
 import { initGoals } from "./goals.js";
 import { initSchedule } from "./schedule.js";
 
+// PWA Install Logic
 let deferredPrompt;
+const installBtn = document.getElementById('install-btn');
+const installModal = document.getElementById('install-modal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const closeInstallModalX = document.getElementById('close-install-modal');
+
+// Check if app is already installed
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+if (!isStandalone) {
+    // Show install button by default for all users not in standalone
+    if (installBtn) installBtn.classList.remove('hidden');
+}
 
 window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
-    // Stash the event so it can be triggered later.
     deferredPrompt = e;
-    // Update UI to notify the user they can add to home screen
-    const installBtn = document.getElementById('install-btn');
-    if (installBtn) {
-        installBtn.classList.remove('hidden');
+    console.log("Deferred prompt saved");
+});
 
-        installBtn.addEventListener('click', (e) => {
-            // Hide our user interface that shows our A2HS button
-            installBtn.classList.add('hidden');
-            // Show the prompt
+if (installBtn) {
+    installBtn.addEventListener('click', () => {
+        if (deferredPrompt) {
+            // Native Install
             deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
             deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
                     console.log('User accepted the A2HS prompt');
-                } else {
-                    console.log('User dismissed the A2HS prompt');
+                    installBtn.classList.add('hidden');
                 }
                 deferredPrompt = null;
             });
-        });
-    }
-});
+        } else {
+            // Fallback: Show Instructions Modal (iOS / HTTP)
+            installModal.classList.remove('hidden');
+        }
+    });
+}
+
+// Close Modal Logic
+function closeModal() {
+    installModal.classList.add('hidden');
+}
+
+if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+if (closeInstallModalX) closeInstallModalX.addEventListener('click', closeModal);
+if (installModal) { // Check if installModal exists before adding event listener
+    installModal.addEventListener('click', (e) => {
+        if (e.target === installModal) closeModal();
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const landingView = document.getElementById("landing-view");

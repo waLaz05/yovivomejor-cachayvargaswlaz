@@ -2,20 +2,20 @@
     "name": "VivoMejor - Organizador Personal",
     "short_name": "VivoMejor",
     "description": "Organiza tu vida de manera inteligente con tareas, horarios y metas",
-    "start_url": "/",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#000000",
     "orientation": "portrait",
     "icons": [
         {
-            "src": "/assets/icon.png",
+            "src": "./assets/icon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/icon.png",
+            "src": "./assets/icon.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"

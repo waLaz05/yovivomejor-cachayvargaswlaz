@@ -1,20 +1,20 @@
-const CACHE_NAME = 'vivomejor-v2.0.0';
+const CACHE_NAME = 'vivomejor-v2.0.1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/css/styles.css',
-    '/js/app.js',
-    '/js/auth.js',
-    '/js/tasks.js',
-    '/js/goals.js',
-    '/js/schedule.js',
-    '/js/firebase-config.js',
+    './',
+    './index.html',
+    './manifest.json',
+    './css/styles.css',
+    './js/app.js',
+    './js/auth.js',
+    './js/tasks.js',
+    './js/goals.js',
+    './js/schedule.js',
+    './js/firebase-config.js',
     'https://cdn.tailwindcss.com',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js',
-    '/assets/icon.png'
+    './assets/icon.png'
 ];
 
 // Install Service Worker

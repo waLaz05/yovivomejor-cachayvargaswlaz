@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000">
+  <title>VivoMejor - Organiza tu vida</title>
+  <link rel="manifest" href="manifest.json" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gray: {
+              900: '#121212',
+              800: '#1e1e1e',
+              700: '#2c2c2c',
+              600: '#3d3d3d',
+              500: '#555555',
+              400: '#777777',
+              300: '#9ca3af',
+              200: '#e5e7eb',
+              100: '#f3f4f6',
+              50: '#f9fafb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-black text-white selection:bg-white selection:text-black">
+
+  <!-- LANDING VIEW -->
+  <div id="landing-view" class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="w-full py-6 px-4 md:px-8 flex justify-between items-center max-w-7xl mx-auto w-full">
+      <div class="text-2xl font-bold text-white tracking-tighter text-glow">VivoMejor</div>
+      <div class="flex items-center gap-4">
+        <button id="install-btn"
+          class="hidden bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition">
+          Instalar App 📲
+        </button>
+        <a href="#" id="login-link"
+          class="text-gray-300 hover:text-white font-medium transition-colors duration-300">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      class="flex-1 flex flex-col items-center justify-center text-center px-4 py-20 hero-bg text-white relative overflow-hidden">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-black to-black -z-10">
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">Organiza tu vida,<br>con claridad.
+      </h1>
+      <p class="text-xl md:text-2xl mb-12 max-w-2xl text-gray-400 font-light">La herramienta definitiva para gestionar
+        tus tareas,
+        metas y horario. Minimalista, potente y elegante.</p>
+      <button id="start-btn"
+        class="bg-white text-black hover:bg-gray-200 font-bold py-4 px-12 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] transition transform hover:scale-105">
+        Empezar Ahora
+      </button>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-24 px-4 bg-black border-t border-zinc-900">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+        <!-- Feature 1 -->
+        <div
+          class="feature-card p-10 rounded-3xl bg-zinc-900/50 border border-zinc-800 text-center hover:border-zinc-600 transition duration-300">
+          <div
+            class="w-16 h-16 bg-zinc-800 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl shadow-lg">
+            ✓</div>
+          <h3 class="text-xl font-bold mb-4 text-white">Tareas Diarias</h3>
+          <p class="text-gray-400">Mantén el control de tus pendientes diarios con una lista simple y efectiva.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div
+          class="feature-card p-10 rounded-3xl bg-zinc-900/50 border border-zinc-800 text-center hover:border-zinc-600 transition duration-300">
+          <div
+            class="w-16 h-16 bg-zinc-800 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl shadow-lg">
+            🎯</div>
+          <h3 class="text-xl font-bold mb-4 text-white">Metas a Largo Plazo</h3>
+          <p class="text-gray-400">Define tus objetivos y visualiza tu progreso paso a paso hacia el éxito.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div
+          class="feature-card p-10 rounded-3xl bg-zinc-900/50 border border-zinc-800 text-center hover:border-zinc-600 transition duration-300">
+          <div
+            class="w-16 h-16 bg-zinc-800 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl shadow-lg">
+            📅</div>
+          <h3 class="text-xl font-bold mb-4 text-white">Horario Flexible</h3>
+          <p class="text-gray-400">Organiza tu semana con vistas de día, semana y agenda completa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-gray-600 text-sm bg-black border-t border-zinc-900">
+      &copy; 2024 VivoMejor. Desarrollado por Joseph Ivan Cachay Vargas.
+    </footer>
+  </div>
+
+  <!-- LOGIN VIEW -->
+  <div id="login-view"
+    class="hidden min-h-screen flex items-center justify-center px-6 py-12 bg-black relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black">
+    </div>
+
+    <div
+      class="w-full max-w-md glass-effect shadow-2xl rounded-3xl p-8 md:p-12 relative z-10 animate-fade-in-up border border-zinc-800">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Bienvenido</h2>
+        <p class="text-gray-400 mt-2 text-sm font-medium">Ingresa a tu espacio personal</p>
+      </div>
+
+      <button id="google-login"
+        class="w-full py-3.5 mb-8 flex items-center justify-center gap-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-600 transition font-medium text-white shadow-sm group">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+          class="w-5 h-5 group-hover:scale-110 transition-transform filter grayscale group-hover:grayscale-0">
+        <span>Continuar con Google</span>
+      </button>
+
+      <div class="relative my-8">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-zinc-800"></div>
+        </div>
+        <div class="relative flex justify-center text-xs uppercase tracking-wider font-semibold"><span
+            class="px-3 bg-black text-zinc-500 rounded-full">O con correo</span>
+        </div>
+      </div>
+
+      <form id="login-form" class="space-y-6">
+        <div>
+          <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1">Correo
+            Electrónico</label>
+          <input name="email" type="email" required placeholder="tu@correo.com"
+            class="w-full px-5 py-3.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white outline-none text-white placeholder-zinc-600 transition">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 ml-1">Contraseña</label>
+          <div class="relative">
+            <input name="password" type="password" required placeholder="••••••••"
+              class="w-full px-5 py-3.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white outline-none text-white placeholder-zinc-600 transition">
+            <button type="button" id="toggle-password-login"
+              class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-500 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex justify-end mt-2">
+            <a href="#" id="forgot-password-link"
+              class="text-xs font-medium text-zinc-400 hover:text-white transition">¿Olvidaste tu contraseña?</a>
+          </div>
+        </div>
+        <button type="submit"
+          class="w-full bg-white hover:bg-gray-200 text-black font-bold py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 active:translate-y-0">
+          Iniciar Sesión
+        </button>
+      </form>
+
+      <div class="mt-8 text-center space-y-4">
+        <p class="text-sm text-gray-500">¿No tienes cuenta? <a href="#" id="show-register-link"
+            class="text-white font-bold hover:underline">Regístrate</a></p>
+        <button onclick="location.reload()" class="text-xs text-zinc-600 hover:text-zinc-400 transition">← Volver al
+          inicio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGISTER VIEW -->
+  <div id="register-view" class="hidden min-h-screen flex items-center justify-center px-6 py-12 bg-black relative">
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black">
+    </div>
+
+    <div class="w-full max-w-md glass-effect shadow-2xl rounded-3xl p-8 md:p-10 relative z-10 border border-zinc-800">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-white">Crear Cuenta</h2>
+        <p class="text-gray-500 mt-2">Únete a VivoMejor</p>
+      </div>
+
+      <form id="register-form" class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-gray-400 mb-1">Correo Electrónico</label>
+          <input name="email" type="email" required
+            class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white outline-none text-white transition">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-400 mb-1">Contraseña</label>
+          <div class="relative">
+            <input name="password" type="password" required
+              class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white outline-none text-white transition">
+            <button type="button" id="toggle-password-register"
+              class="absolute inset-y-0 right-0 pr-3 flex items-center text-zinc-500 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit"
+          class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 rounded-xl shadow-md transition transform active:scale-95">
+          Registrarse
+        </button>
+      </form>
+
+      <div class="mt-6 text-center space-y-2">
+        <p class="text-sm text-gray-500">¿Ya tienes cuenta? <a href="#" id="show-login-link"
+            class="text-white font-semibold hover:underline">Inicia Sesión</a></p>
+        <button onclick="location.reload()" class="text-sm text-zinc-600 hover:text-zinc-400">← Volver al
+          inicio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP VIEW -->
+  <div id="app-view" class="hidden min-h-screen bg-black flex flex-col">
+    <!-- Header -->
+    <header class="glass-effect sticky top-4 z-50 mx-4 mt-4 rounded-2xl border-zinc-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex-shrink-0 flex items-center gap-2">
+            <span class="text-2xl">✨</span>
+            <span class="text-xl font-bold text-white tracking-tight text-glow">VivoMejor</span>
+          </div>
+          <button id="logout-btn"
+            class="ml-4 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-zinc-800 hover:bg-zinc-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-zinc-700">
+            Cerrar Sesión
+          </button>
+        </div>
+        <!-- Tabs -->
+        <nav class="flex space-x-2 pb-4" aria-label="Tabs">
+          <button id="tab-tasks" data-tab="tasks"
+            class="tab-btn flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-transparent hover:bg-zinc-800 text-gray-400 hover:text-white">
+            Tareas
+          </button>
+          <button id="tab-goals" data-tab="goals"
+            class="tab-btn flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-transparent hover:bg-zinc-800 text-gray-400 hover:text-white">
+            Metas
+          </button>
+          <button id="tab-schedule" data-tab="schedule"
+            class="tab-btn flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-transparent hover:bg-zinc-800 text-gray-400 hover:text-white">
+            Horario
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+      <!-- TAB: TAREAS -->
+      <section id="tab-content-tasks" class="tab-content">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-2">Mis Tareas</h2>
+          <p class="text-gray-400 font-medium">Organiza tu día, alcanza tus objetivos.</p>
+        </div>
+
+        <!-- Task Input -->
+        <div class="glass-effect rounded-2xl p-6 mb-8 border border-zinc-800">
+          <form id="add-task-form" class="flex flex-col gap-4">
+            <input type="text" name="title" placeholder="¿Qué tienes pendiente hoy?" required
+              class="w-full text-lg font-medium text-white placeholder-zinc-500 bg-transparent border-none focus:ring-0 p-2 outline-none">
+
+            <div class="flex items-center justify-between border-t border-zinc-800 pt-3">
+              <div class="flex items-center gap-3">
+                <!-- Date Picker Icon Wrapper -->
+                <div class="relative group">
+                  <input type="date" name="dueDate" id="date-picker"
+                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                  <button type="button"
+                    class="text-zinc-400 hover:text-white transition flex items-center gap-1 group-hover:bg-zinc-800 px-2 py-1 rounded-md">
+                    <span class="text-xl grayscale">📅</span>
+                    <span id="date-display" class="text-xs font-medium hidden text-white"></span>
+                  </button>
+                </div>
+
+                <input type="text" name="description" placeholder="Agregar nota..."
+                  class="text-sm text-zinc-400 placeholder-zinc-600 bg-transparent border-none focus:ring-0 p-1 outline-none w-full md:w-64">
+              </div>
+              <button type="submit"
+                class="bg-white hover:bg-gray-200 text-black font-semibold py-2 px-6 rounded-lg shadow-md transition transform active:scale-95">
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Active Tasks -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-gray-400 mb-4 flex items-center gap-2">
+            <span>📝</span> Pendientes
+          </h3>
+          <ul id="tasks-list-active" class="space-y-3">
+            <!-- JS Generated -->
+          </ul>
+        </div>
+
+        <!-- Completed Tasks -->
+        <div>
+          <h3 class="text-lg font-semibold text-zinc-600 mb-4 flex items-center gap-2">
+            <span class="grayscale opacity-50">✅</span> Completadas
+          </h3>
+          <ul id="tasks-list-completed" class="space-y-3 opacity-50">
+            <!-- JS Generated -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- TAB: METAS -->
+      <section id="tab-content-goals" class="tab-content hidden">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-2">Mis Metas</h2>
+          <p class="text-gray-400 font-medium italic">"El éxito es la suma de pequeños esfuerzos repetidos día tras
+            día."</p>
+        </div>
+
+        <!-- Goal Creator -->
+        <div class="glass-effect rounded-2xl p-8 mb-8 border border-zinc-800">
+          <h3 class="text-lg font-semibold text-white mb-4">Crear Nueva Meta</h3>
+          <form id="add-goal-form" class="flex flex-col gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" name="title" placeholder="Nombre de la meta (ej. Xiaomi 17, Ejercicio)" required
+                class="w-full px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white placeholder-zinc-500">
+
+              <select name="type" id="goal-type-select"
+                class="w-full px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white">
+                <option value="savings">💰 Ahorro (Dinero)</option>
+                <option value="habit">🔥 Hábito (Diario)</option>
+              </select>
+            </div>
+
+            <!-- Dynamic Fields based on type -->
+            <div id="savings-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="number" name="targetAmount" placeholder="Monto Objetivo (ej. 3500)"
+                class="w-full px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white placeholder-zinc-500">
+              <input type="number" name="currentAmount" placeholder="Monto Inicial (ej. 0)"
+                class="w-full px-4 py-2 rounded-lg bg-zinc-900 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white placeholder-zinc-500">
+            </div>
+
+            <button type="submit"
+              class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 rounded-lg shadow-md transition transform active:scale-95 mt-2">
+              Comenzar Meta
+            </button>
+          </form>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <!-- Savings Column -->
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span class="bg-zinc-800 text-white p-2 rounded-lg border border-zinc-700">💰</span> Ahorros
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Define un monto y visualiza tu progreso monetario.</p>
+            <div id="goals-list-savings" class="space-y-4">
+              <!-- JS Generated -->
+            </div>
+          </div>
+
+          <!-- Habits Column -->
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span class="bg-zinc-800 text-white p-2 rounded-lg border border-zinc-700">🔥</span> Hábitos
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Construye disciplina marcando tu progreso diario.</p>
+            <div id="goals-list-habits" class="space-y-4">
+              <!-- JS Generated -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: HORARIO -->
+      <section id="tab-content-schedule" class="tab-content hidden">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-2">Mi Horario</h2>
+          <p class="text-gray-400 font-medium italic">"Organiza tu tiempo y dominarás tu vida."</p>
+        </div>
+
+        <!-- Day Selector -->
+        <div
+          class="flex justify-between items-center bg-zinc-900 p-2 rounded-xl shadow-sm mb-6 overflow-x-auto border border-zinc-800"
+          id="day-selector">
+          <!-- JS Generated Days -->
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Timeline -->
+          <div class="lg:col-span-2">
+            <div class="bg-zinc-900 rounded-xl shadow-lg p-6 min-h-[500px] relative border border-zinc-800">
+              <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <span id="current-day-display" class="capitalize">Lunes</span>
+              </h3>
+              <div id="schedule-timeline" class="space-y-0 relative pl-8 border-l-2 border-zinc-700">
+                <!-- JS Generated Timeline -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Activity -->
+          <div>
+            <div class="bg-zinc-900 rounded-xl shadow-lg p-6 sticky top-6 border border-zinc-800">
+              <h3 class="text-lg font-semibold text-white mb-4">Agregar Actividad</h3>
+              <form id="add-activity-form" class="flex flex-col gap-4">
+                <input type="text" name="title" placeholder="Actividad (ej. Gym, Estudiar)" required
+                  class="w-full px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white placeholder-zinc-500">
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="text-xs text-gray-400 block mb-1">Inicio</label>
+                    <select name="startTime" id="startTimeSelect" required
+                      class="w-full px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white">
+                      <!-- Populated by JS -->
+                    </select>
+                  </div>
+                  <div>
+                    <label class="text-xs text-gray-400 block mb-1">Fin</label>
+                    <select name="endTime" id="endTimeSelect" required
+                      class="w-full px-4 py-2 rounded-lg bg-zinc-800 border border-zinc-700 focus:border-white focus:ring-1 focus:ring-white outline-none text-white">
+                      <!-- Populated by JS -->
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Recurrence Options -->
+                <div>
+                  <label class="text-xs text-gray-400 block mb-1">Repetir</label>
+                  <div class="flex gap-2 mb-2">
+                    <label class="cursor-pointer flex-1">
+                      <input type="radio" name="recurrence" value="none" class="peer hidden" checked>
+                      <div
+                        class="px-2 py-2 rounded-lg text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black transition">
+                        No repetir
+                      </div>
+                    </label>
+                    <label class="cursor-pointer flex-1">
+                      <input type="radio" name="recurrence" value="daily" class="peer hidden">
+                      <div
+                        class="px-2 py-2 rounded-lg text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black transition">
+                        Diario
+                      </div>
+                    </label>
+                    <label class="cursor-pointer flex-1">
+                      <input type="radio" name="recurrence" value="custom" class="peer hidden">
+                      <div
+                        class="px-2 py-2 rounded-lg text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black transition">
+                        Personalizar
+                      </div>
+                    </label>
+                  </div>
+
+                  <!-- Custom Days Selector (Hidden by default) -->
+                  <div id="custom-days-selector" class="hidden grid-cols-7 gap-1 mt-2">
+                    <!-- JS will populate checkboxes -->
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-xs text-gray-400 block mb-1">Categoría</label>
+                  <div class="grid grid-cols-3 gap-2" id="category-selector">
+                    <label class="cursor-pointer">
+                      <input type="radio" name="category" value="home" class="peer hidden" checked>
+                      <div
+                        class="px-2 py-1 rounded text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white transition">
+                        🏠 Casa</div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="category" value="study" class="peer hidden">
+                      <div
+                        class="px-2 py-1 rounded text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white transition">
+                        📚 Estudio</div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="category" value="work" class="peer hidden">
+                      <div
+                        class="px-2 py-1 rounded text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white transition">
+                        💼 Trabajo</div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="category" value="leisure" class="peer hidden">
+                      <div
+                        class="px-2 py-1 rounded text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white transition">
+                        🎮 Ocio</div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="category" value="health" class="peer hidden">
+                      <div
+                        class="px-2 py-1 rounded text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white transition">
+                        ❤️ Salud</div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="category" value="other" class="peer hidden">
+                      <div
+                        class="px-2 py-1 rounded text-xs text-center border border-zinc-700 bg-zinc-800 text-gray-300 peer-checked:bg-white peer-checked:text-black peer-checked:border-white transition">
+                        🔹 Otro</div>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit"
+                  class="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 rounded-lg shadow-md transition transform active:scale-95 mt-2">
+                  Agendar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- App Footer -->
+    <footer class="py-6 text-center text-zinc-600 text-xs border-t border-zinc-900 mt-auto">
+      Desarrollado por Joseph Ivan Cachay Vargas
+    </footer>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

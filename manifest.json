@@ -20,5 +20,41 @@
             "type": "image/png",
             "purpose": "any maskable"
         }
+    ],
+    "id": "/mi-organizador/",
+    "categories": [
+        "productivity",
+        "lifestyle",
+        "utilities"
+    ],
+    "screenshots": [
+        {
+            "src": "./assets/screenshot-mobile.png",
+            "sizes": "1024x1792",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Vista Móvil de Tareas"
+        },
+        {
+            "src": "./assets/screenshot-desktop.png",
+            "sizes": "1792x1024",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Panel de Control Escritorio"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Agregar Tarea",
+            "short_name": "Tarea",
+            "description": "Agrega una nueva tarea rápidamente",
+            "url": "./index.html?action=add-task",
+            "icons": [
+                {
+                    "src": "./assets/icon.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
     ]
 }

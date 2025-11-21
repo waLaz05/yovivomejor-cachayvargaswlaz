@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vivomejor-v2.0.1';
+const CACHE_NAME = 'vivomejor-v2.0.2';
 const urlsToCache = [
     './',
     './index.html',
@@ -14,7 +14,8 @@ const urlsToCache = [
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js',
     'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js',
-    './assets/icon.png'
+    './assets/icon-192.png',
+    './assets/icon-512.png'
 ];
 
 // Install Service Worker

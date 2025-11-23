@@ -7,6 +7,11 @@
   <meta name="theme-color" content="#000000">
   <title>VivoMejor - Organiza tu vida</title>
   <link rel="manifest" href="manifest.json" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/icon-512.png">
+  <link rel="apple-touch-icon" href="./assets/icon-512.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -30,6 +35,10 @@
       }
     }
   </script>
+  <!-- Google Fonts - Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -257,6 +266,10 @@
           <button id="tab-schedule" data-tab="schedule"
             class="tab-btn flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-transparent hover:bg-zinc-800 text-gray-400 hover:text-white">
             Horario
+          </button>
+          <button id="tab-profile" data-tab="profile"
+            class="tab-btn flex-1 py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-transparent hover:bg-zinc-800 text-gray-400 hover:text-white">
+            Perfil
           </button>
         </nav>
       </div>
@@ -519,6 +532,77 @@
                 </button>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: PERFIL -->
+      <section id="tab-content-profile" class="tab-content hidden">
+        <div class="mb-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-2">Mi Perfil</h2>
+          <p class="text-gray-400 font-medium">Tus datos y configuraciones.</p>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <!-- Profile Card -->
+          <div class="glass-effect rounded-2xl p-8 mb-8 border border-zinc-800 flex flex-col items-center text-center">
+            <div class="w-24 h-24 rounded-full bg-zinc-800 mb-4 border-4 border-zinc-700 overflow-hidden relative">
+              <img id="profile-avatar" src="" alt="Avatar" class="w-full h-full object-cover hidden">
+              <div id="profile-avatar-placeholder" class="w-full h-full flex items-center justify-center text-4xl">👤
+              </div>
+            </div>
+            <h3 id="profile-name" class="text-2xl font-bold text-white mb-1">Cargando...</h3>
+            <p id="profile-email" class="text-gray-400">...</p>
+          </div>
+
+          <!-- Settings -->
+          <div class="glass-effect rounded-2xl p-6 mb-8 border border-zinc-800">
+            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Temas</h4>
+
+            <div class="grid grid-cols-5 gap-4 justify-items-center">
+              <!-- Default -->
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-black border-2 border-gray-600 hover:scale-110 transition shadow-lg"
+                data-theme="default" title="Default (Dark)"></button>
+
+              <!-- Light Themes -->
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-pink-200 border-2 border-pink-400 hover:scale-110 transition shadow-lg shadow-pink-500/30"
+                data-theme="pink" title="Pink Dream (Light)"></button>
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-orange-200 border-2 border-orange-400 hover:scale-110 transition shadow-lg shadow-orange-500/30"
+                data-theme="sunset" title="Sunset (Light)"></button>
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-purple-200 border-2 border-purple-400 hover:scale-110 transition shadow-lg shadow-purple-500/30"
+                data-theme="lavender" title="Lavender Haze (Light)"></button>
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-teal-200 border-2 border-teal-400 hover:scale-110 transition shadow-lg shadow-teal-500/30"
+                data-theme="mint" title="Mint Fresh (Light)"></button>
+
+              <!-- Dark Themes -->
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-green-900 border-2 border-green-500 hover:scale-110 transition shadow-lg shadow-green-500/30"
+                data-theme="green" title="Neon Green (Dark)"></button>
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-blue-900 border-2 border-blue-500 hover:scale-110 transition shadow-lg shadow-blue-500/30"
+                data-theme="blue" title="Ocean Blue (Dark)"></button>
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-indigo-900 border-2 border-indigo-500 hover:scale-110 transition shadow-lg shadow-indigo-500/30"
+                data-theme="midnight" title="Midnight Purple (Dark)"></button>
+              <button
+                class="theme-btn w-10 h-10 rounded-full bg-rose-900 border-2 border-rose-500 hover:scale-110 transition shadow-lg shadow-rose-500/30"
+                data-theme="cherry" title="Cherry Bomb (Dark)"></button>
+            </div>
+          </div>
+
+          <!-- Account Actions -->
+          <div class="glass-effect rounded-2xl p-6 border border-zinc-800">
+            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Cuenta</h4>
+            <button id="logout-btn-profile"
+              class="w-full flex items-center gap-3 text-red-500 hover:bg-red-500/10 p-3 rounded-xl transition">
+              <span class="text-xl">🚪</span>
+              <span class="font-bold">Cerrar Sesión</span>
+            </button>
           </div>
         </div>
       </section>

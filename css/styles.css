@@ -1,18 +1,291 @@
-/* Global Styles for Black & White Theme */
+/* Global Styles & Theming */
 
 :root {
-  --bg-color: #000000;
-  --text-color: #ffffff;
+  /* Base Variables (Default Theme - Dark) */
+  --bg-primary: #09090b;
+  /* zinc-950 */
+  --bg-secondary: #18181b;
+  /* zinc-900 */
+  --text-primary: #fafafa;
+  /* zinc-50 */
+  --text-secondary: #a1a1aa;
+  /* zinc-400 */
   --accent-color: #ffffff;
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(24, 24, 27, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(39, 39, 42, 0.4);
+  --input-bg: rgba(39, 39, 42, 0.6);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 70%);
 }
 
+/* --- LIGHT THEMES --- */
+
+/* Theme: Pink Dream (Refined) */
+body.theme-pink {
+  --bg-primary: #fff1f2;
+  /* rose-50 */
+  --bg-secondary: #ffe4e6;
+  /* rose-100 */
+  --text-primary: #1f1f1f;
+  /* Almost black for maximum contrast */
+  --text-secondary: #4a4a4a;
+  /* Dark gray */
+  --accent-color: #e11d48;
+  /* rose-600 */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(251, 113, 133, 0.2);
+  --card-bg: rgba(225, 29, 72, 0.12);
+  /* accent color with 12% opacity */
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(244, 63, 94, 0.15), transparent 60%);
+}
+
+/* Theme: Sunset (Refined - Golden Hour) */
+body.theme-sunset {
+  --bg-primary: #fff7ed;
+  /* orange-50 */
+  --bg-secondary: #ffedd5;
+  /* orange-100 */
+  --text-primary: #1f1f1f;
+  /* Almost black for maximum contrast */
+  --text-secondary: #4a4a4a;
+  /* Dark gray */
+  --accent-color: #ea580c;
+  /* orange-600 */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(253, 186, 116, 0.3);
+  --card-bg: rgba(234, 88, 12, 0.12);
+  /* accent color with 12% opacity */
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 60%);
+}
+
+/* Theme: Lavender Haze (New - Light) */
+body.theme-lavender {
+  --bg-primary: #fdf4ff;
+  /* fuchsia-50 */
+  --bg-secondary: #fae8ff;
+  /* fuchsia-100 */
+  --text-primary: #1f1f1f;
+  /* Almost black for maximum contrast */
+  --text-secondary: #4a4a4a;
+  /* Dark gray */
+  --accent-color: #c026d3;
+  /* fuchsia-600 */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(232, 121, 249, 0.3);
+  --card-bg: rgba(192, 38, 211, 0.12);
+  /* accent color with 12% opacity */
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(217, 70, 239, 0.15), transparent 60%);
+}
+
+/* Theme: Mint Fresh (New - Light) */
+body.theme-mint {
+  --bg-primary: #f0fdfa;
+  /* teal-50 */
+  --bg-secondary: #ccfbf1;
+  /* teal-100 */
+  --text-primary: #1f1f1f;
+  /* Almost black for maximum contrast */
+  --text-secondary: #4a4a4a;
+  /* Dark gray */
+  --accent-color: #0d9488;
+  /* teal-600 */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(94, 234, 212, 0.4);
+  --card-bg: rgba(13, 148, 136, 0.12);
+  /* accent color with 12% opacity */
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(20, 184, 166, 0.15), transparent 60%);
+}
+
+/* --- DARK THEMES --- */
+
+/* Theme: Neon Green (Refined - Matrix) */
+body.theme-green {
+  --bg-primary: #020617;
+  /* slate-950 */
+  --bg-secondary: #052e16;
+  /* green-950 */
+  --text-primary: #f0fdf4;
+  /* green-50 */
+  --text-secondary: #4ade80;
+  /* green-400 */
+  --accent-color: #22c55e;
+  /* green-500 */
+  --glass-bg: rgba(2, 6, 23, 0.8);
+  --glass-border: rgba(34, 197, 94, 0.2);
+  --card-bg: rgba(20, 83, 45, 0.3);
+  --input-bg: rgba(20, 83, 45, 0.5);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(34, 197, 94, 0.15), transparent 60%);
+}
+
+/* Theme: Ocean Blue (Refined - Deep Sea) */
+body.theme-blue {
+  --bg-primary: #0b1120;
+  /* slate-950 (darker) */
+  --bg-secondary: #1e293b;
+  /* slate-800 */
+  --text-primary: #f0f9ff;
+  /* sky-50 */
+  --text-secondary: #38bdf8;
+  /* sky-400 */
+  --accent-color: #0ea5e9;
+  /* sky-500 */
+  --glass-bg: rgba(15, 23, 42, 0.8);
+  --glass-border: rgba(14, 165, 233, 0.2);
+  --card-bg: rgba(30, 41, 59, 0.4);
+  --input-bg: rgba(30, 41, 59, 0.6);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 60%);
+}
+
+/* Theme: Midnight Purple (New - Dark) */
+body.theme-midnight {
+  --bg-primary: #1e1b4b;
+  /* indigo-950 */
+  --bg-secondary: #312e81;
+  /* indigo-900 */
+  --text-primary: #e0e7ff;
+  /* indigo-50 */
+  --text-secondary: #818cf8;
+  /* indigo-400 */
+  --accent-color: #6366f1;
+  /* indigo-500 */
+  --glass-bg: rgba(30, 27, 75, 0.8);
+  --glass-border: rgba(99, 102, 241, 0.2);
+  --card-bg: rgba(49, 46, 129, 0.4);
+  --input-bg: rgba(49, 46, 129, 0.6);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(99, 102, 241, 0.2), transparent 60%);
+}
+
+/* Theme: Cherry Bomb (New - Dark) */
+body.theme-cherry {
+  --bg-primary: #2a0a12;
+  /* custom dark red */
+  --bg-secondary: #450a1f;
+  /* rose-950ish */
+  --text-primary: #ffe4e6;
+  /* rose-100 */
+  --text-secondary: #fb7185;
+  /* rose-400 */
+  --accent-color: #f43f5e;
+  /* rose-500 */
+  --glass-bg: rgba(42, 10, 18, 0.8);
+  --glass-border: rgba(244, 63, 94, 0.2);
+  --card-bg: rgba(88, 28, 40, 0.4);
+  --input-bg: rgba(88, 28, 40, 0.6);
+  --gradient-overlay: radial-gradient(circle at top right, rgba(244, 63, 94, 0.15), transparent 60%);
+}
+
+/* --- CORE STYLES --- */
+
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Inter', sans-serif;
-  /* Assuming Inter or similar is available/default */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  /* Make default text medium weight */
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-image: var(--gradient-overlay);
+  background-attachment: fixed;
+}
+
+/* Make headings and buttons bolder */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700 !important;
+  /* Bold */
+}
+
+button,
+.btn {
+  font-weight: 600 !important;
+  /* Semi-bold for buttons */
+}
+
+/* Apply Variables to Tailwind Classes (Overrides) */
+
+.glass-effect,
+.glass-effect-light {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  /* Increased blur for elegance */
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  /* Softer, deeper shadow */
+}
+
+/* Text Colors */
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-400,
+.text-zinc-400,
+.text-zinc-500,
+.text-zinc-600 {
+  color: var(--text-secondary) !important;
+}
+
+.text-black {
+  color: var(--bg-primary) !important;
+}
+
+/* For buttons on light themes */
+
+/* Backgrounds */
+.bg-black {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-zinc-900,
+.bg-zinc-800 {
+  background-color: var(--card-bg) !important;
+}
+
+.bg-white {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-primary) !important;
+}
+
+/* Primary Buttons */
+
+/* Borders */
+.border-zinc-800,
+.border-zinc-700 {
+  border-color: var(--glass-border) !important;
+}
+
+/* Inputs */
+input,
+select {
+  background-color: var(--input-bg) !important;
+  border-color: var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}
+
+input::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.6;
+}
+
+/* Tab Buttons */
+.tab-btn.bg-white\/20 {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-primary) !important;
+  opacity: 0.9;
+  box-shadow: 0 0 15px var(--glass-border);
+  /* Glow effect */
+}
+
+.tab-btn:hover:not(.bg-white\/20) {
+  background-color: var(--glass-border) !important;
 }
 
 /* Custom Scrollbar */
@@ -21,38 +294,25 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: var(--glass-border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: var(--accent-color);
 }
 
 /* Utilities */
 .hero-bg {
-  background-color: #000000;
-  background-image:
-    radial-gradient(at 0% 0%, hsla(0, 0%, 20%, 1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(0, 0%, 20%, 1) 0, transparent 50%);
+  background-color: var(--bg-primary);
 }
 
-.glass-effect {
-  background: rgba(20, 20, 20, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-effect-light {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.text-glow {
+  text-shadow: 0 0 20px var(--glass-border);
 }
 
 /* Animation Utilities */
@@ -78,14 +338,6 @@ body {
   animation: blob 7s infinite;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease-out forwards;
 }
@@ -100,8 +352,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.text-glow {
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }

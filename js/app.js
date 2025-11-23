@@ -2,6 +2,7 @@ import { initAuth, loginWithEmail, loginWithGoogle, logout, registerWithEmail, r
 import { initTasks } from "./tasks.js";
 import { initGoals } from "./goals.js";
 import { initSchedule } from "./schedule.js";
+import { initProfile } from "./profile.js";
 
 // PWA Install Logic
 let deferredPrompt;
@@ -79,8 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const showLoginLink = document.getElementById("show-login-link");
     const togglePasswordRegister = document.getElementById("toggle-password-register");
 
-    // App Header
-    const logoutBtn = document.getElementById("logout-btn");
+    // App Header - Logout button removed from here (moved to profile)
 
     // Navigation
     function showView(view) {
@@ -173,10 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    logoutBtn.addEventListener("click", async () => {
-        await logout();
-    });
-
     // Tab Navigation in App
     // Tab Switching Logic
     const switchTab = (tabId) => {
@@ -226,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
             initTasks(user);
             initGoals(user);
             initSchedule(user);
+            initProfile(user);
             // Set initial tab to tasks if not already set
             if (!document.querySelector('.tab-btn.bg-white\\/20')) {
                 switchTab('tasks');

@@ -10,6 +10,7 @@ import {
     doc
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { db } from "./firebase-config.js";
+import { showToast, showConfirm } from "./notifications.js";
 
 export function initTasks(user) {
     const activeList = document.getElementById("tasks-list-active");
@@ -40,7 +41,7 @@ export function initTasks(user) {
             document.getElementById("date-display").classList.add("hidden");
         } catch (e) {
             console.error("Error adding task: ", e);
-            alert("Error al agregar tarea");
+            showToast("Error al agregar tarea", "error");
         }
     });
 
@@ -90,7 +91,7 @@ export function initTasks(user) {
         });
     }, (error) => {
         console.error("Error getting tasks:", error);
-        alert("Error al cargar las tareas: " + error.message);
+        showToast("Error al cargar las tareas: " + error.message, "error");
     });
 
     // Event Delegation for Task Actions (More Robust)
@@ -150,12 +151,14 @@ async function toggleTaskCompletion(id, isCompleted) {
 }
 
 async function deleteTask(id) {
-    if (!confirm("¿Estás seguro de eliminar esta tarea?")) return;
+    const confirmed = await showConfirm("¿Estás seguro de eliminar esta tarea?", "Eliminar Tarea");
+    if (!confirmed) return;
     try {
         await deleteDoc(doc(db, "tasks", id));
+        showToast("Tarea eliminada", "success");
     } catch (e) {
         console.error("Error deleting task: ", e);
-        alert("Error al eliminar: " + e.message);
+        showToast("Error al eliminar: " + e.message, "error");
     }
 }
 

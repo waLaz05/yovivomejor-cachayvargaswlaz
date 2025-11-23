@@ -8,6 +8,7 @@ import {
     doc
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { db } from "./firebase-config.js";
+import { showToast, showConfirm } from "./notifications.js";
 
 const CATEGORY_COLORS = {
     home: "bg-orange-900/30 border-orange-800 text-orange-300",
@@ -92,7 +93,7 @@ export function initSchedule(user) {
         if (!title || !startTime || !endTime) return;
 
         if (startTime >= endTime) {
-            alert("La hora de fin debe ser después de la hora de inicio.");
+            showToast("La hora de fin debe ser después de la hora de inicio.", "warning");
             return;
         }
 
@@ -100,7 +101,7 @@ export function initSchedule(user) {
         if (recurrenceType === 'custom') {
             const selectedCustomDays = Array.from(addActivityForm.querySelectorAll('input[name="customDays"]:checked')).map(cb => parseInt(cb.value));
             if (selectedCustomDays.length === 0) {
-                alert("Por favor selecciona al menos un día para la repetición personalizada.");
+                showToast("Por favor selecciona al menos un día para la repetición personalizada.", "warning");
                 return;
             }
             recurrence.days = selectedCustomDays;
@@ -131,7 +132,7 @@ export function initSchedule(user) {
 
         } catch (error) {
             console.error("Error adding activity:", error);
-            alert(`Error al agregar actividad: ${error.message}`);
+            showToast(`Error al agregar actividad: ${error.message}`, "error");
         }
     });
 
@@ -325,10 +326,13 @@ function generateTimeOptions() {
 }
 
 async function deleteActivity(id) {
-    if (!confirm("¿Eliminar esta actividad?")) return;
+    const confirmed = await showConfirm("¿Eliminar esta actividad?", "Eliminar Actividad");
+    if (!confirmed) return;
     try {
         await deleteDoc(doc(db, "schedule", id));
+        showToast("Actividad eliminada", "success");
     } catch (e) {
         console.error("Error deleting activity: ", e);
+        showToast("Error al eliminar actividad", "error");
     }
 }

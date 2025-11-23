@@ -1,4 +1,5 @@
 import { logout } from "./auth.js";
+import { showToast } from "./notifications.js";
 
 export function initProfile(user) {
     const profileName = document.getElementById("profile-name");
@@ -29,7 +30,7 @@ export function initProfile(user) {
                 await logout();
             } catch (error) {
                 console.error("Error al cerrar sesión:", error);
-                alert("Error al cerrar sesión");
+                showToast("Error al cerrar sesión", "error");
             }
         };
     }
@@ -59,8 +60,12 @@ function applyTheme(theme) {
         "theme-sunset",
         "theme-lavender",
         "theme-mint",
+        "theme-sky",
         "theme-midnight",
-        "theme-cherry"
+        "theme-cherry",
+        "theme-amber",
+        "theme-emerald",
+        "theme-slate"
     );
 
     // Add selected theme class

@@ -245,13 +245,8 @@
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
           <div class="flex-shrink-0 flex items-center gap-2">
-            <span class="text-2xl">✨</span>
             <span class="text-xl font-bold text-white tracking-tight text-glow">VivoMejor</span>
           </div>
-          <button id="logout-btn"
-            class="ml-4 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-zinc-800 hover:bg-zinc-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-zinc-700">
-            Cerrar Sesión
-          </button>
         </div>
         <!-- Tabs -->
         <nav class="flex space-x-2 pb-4" aria-label="Tabs">
@@ -559,39 +554,51 @@
           <div class="glass-effect rounded-2xl p-6 mb-8 border border-zinc-800">
             <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Temas</h4>
 
-            <div class="grid grid-cols-5 gap-4 justify-items-center">
+            <div class="grid grid-cols-7 gap-3 justify-items-center">
               <!-- Default -->
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-black border-2 border-gray-600 hover:scale-110 transition shadow-lg"
-                data-theme="default" title="Default (Dark)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-black border-2 border-gray-500 hover:scale-110 transition shadow-lg"
+                data-theme="default" title="Default"></button>
 
               <!-- Light Themes -->
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-pink-200 border-2 border-pink-400 hover:scale-110 transition shadow-lg shadow-pink-500/30"
-                data-theme="pink" title="Pink Dream (Light)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-pink-200 to-pink-300 border-2 border-pink-400 hover:scale-110 transition shadow-lg shadow-pink-400/40"
+                data-theme="pink" title="Pink Dream"></button>
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-orange-200 border-2 border-orange-400 hover:scale-110 transition shadow-lg shadow-orange-500/30"
-                data-theme="sunset" title="Sunset (Light)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-amber-200 to-amber-300 border-2 border-amber-500 hover:scale-110 transition shadow-lg shadow-amber-400/40"
+                data-theme="sunset" title="Sunset"></button>
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-purple-200 border-2 border-purple-400 hover:scale-110 transition shadow-lg shadow-purple-500/30"
-                data-theme="lavender" title="Lavender Haze (Light)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-purple-200 to-purple-300 border-2 border-purple-400 hover:scale-110 transition shadow-lg shadow-purple-400/40"
+                data-theme="lavender" title="Lavender Haze"></button>
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-teal-200 border-2 border-teal-400 hover:scale-110 transition shadow-lg shadow-teal-500/30"
-                data-theme="mint" title="Mint Fresh (Light)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-emerald-200 to-emerald-300 border-2 border-emerald-500 hover:scale-110 transition shadow-lg shadow-emerald-400/40"
+                data-theme="mint" title="Mint Fresh"></button>
+              <button
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-sky-200 to-sky-300 border-2 border-sky-500 hover:scale-110 transition shadow-lg shadow-sky-400/40"
+                data-theme="sky" title="Sky Blue"></button>
 
               <!-- Dark Themes -->
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-green-900 border-2 border-green-500 hover:scale-110 transition shadow-lg shadow-green-500/30"
-                data-theme="green" title="Neon Green (Dark)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-green-900 to-green-800 border-2 border-green-500 hover:scale-110 transition shadow-lg shadow-green-500/40"
+                data-theme="green" title="Matrix Green"></button>
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-blue-900 border-2 border-blue-500 hover:scale-110 transition shadow-lg shadow-blue-500/30"
-                data-theme="blue" title="Ocean Blue (Dark)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-blue-900 to-blue-800 border-2 border-blue-500 hover:scale-110 transition shadow-lg shadow-blue-500/40"
+                data-theme="blue" title="Ocean Blue"></button>
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-indigo-900 border-2 border-indigo-500 hover:scale-110 transition shadow-lg shadow-indigo-500/30"
-                data-theme="midnight" title="Midnight Purple (Dark)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-indigo-900 to-indigo-800 border-2 border-indigo-400 hover:scale-110 transition shadow-lg shadow-indigo-400/40"
+                data-theme="midnight" title="Royal Purple"></button>
               <button
-                class="theme-btn w-10 h-10 rounded-full bg-rose-900 border-2 border-rose-500 hover:scale-110 transition shadow-lg shadow-rose-500/30"
-                data-theme="cherry" title="Cherry Bomb (Dark)"></button>
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-rose-900 to-rose-800 border-2 border-rose-400 hover:scale-110 transition shadow-lg shadow-rose-400/40"
+                data-theme="cherry" title="Cherry Rose"></button>
+              <button
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-amber-900 to-amber-800 border-2 border-amber-500 hover:scale-110 transition shadow-lg shadow-amber-500/40"
+                data-theme="amber" title="Amber Gold"></button>
+              <button
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-emerald-900 to-emerald-800 border-2 border-emerald-500 hover:scale-110 transition shadow-lg shadow-emerald-500/40"
+                data-theme="emerald" title="Emerald Forest"></button>
+              <button
+                class="theme-btn w-12 h-12 rounded-full bg-gradient-to-br from-slate-700 to-slate-600 border-2 border-slate-400 hover:scale-110 transition shadow-lg shadow-slate-400/40"
+                data-theme="slate" title="Charcoal Slate"></button>
             </div>
           </div>
 

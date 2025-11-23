@@ -3,6 +3,7 @@ import { initTasks } from "./tasks.js";
 import { initGoals } from "./goals.js";
 import { initSchedule } from "./schedule.js";
 import { initProfile } from "./profile.js";
+import { showToast, showPrompt } from "./notifications.js";
 
 // PWA Install Logic
 let deferredPrompt;
@@ -129,13 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Forgot Password
     forgotPasswordLink.addEventListener("click", async (e) => {
         e.preventDefault();
-        const email = prompt("Ingresa tu correo electrónico para restablecer la contraseña:");
+        const email = await showPrompt("Ingresa tu correo electrónico:", "Restablecer Contraseña");
         if (email) {
             try {
                 await resetPassword(email);
-                alert("Se ha enviado un correo para restablecer tu contraseña.");
+                showToast("Se ha enviado un correo para restablecer tu contraseña.", "success");
             } catch (err) {
-                alert("Error: " + err.message);
+                showToast("Error: " + err.message, "error");
             }
         }
     });
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             await loginWithEmail(email, password);
         } catch (err) {
-            alert("Error: " + err.message);
+            showToast("Error: " + err.message, "error");
         }
     });
 
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await registerWithEmail(email, password);
             // Auth state listener will handle redirection
         } catch (err) {
-            alert("Error: " + err.message);
+            showToast("Error: " + err.message, "error");
         }
     });
 
@@ -169,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             await loginWithGoogle();
         } catch (err) {
-            alert("Error Google Login: " + err.message);
+            showToast("Error Google Login: " + err.message, "error");
         }
     });
 

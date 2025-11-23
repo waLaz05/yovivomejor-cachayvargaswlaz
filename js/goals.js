@@ -10,6 +10,7 @@ import {
     arrayUnion
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { db } from "./firebase-config.js";
+import { showToast, showConfirm, showNumberPrompt } from "./notifications.js";
 
 export function initGoals(user) {
     const savingsList = document.getElementById("goals-list-savings");
@@ -60,7 +61,7 @@ export function initGoals(user) {
             savingsFields.classList.add("grid");
         } catch (e) {
             console.error("Error adding goal: ", e);
-            alert("Error al agregar meta");
+            showToast("Error al agregar meta", "error");
         }
     });
 
@@ -136,11 +137,12 @@ function createSavingsCard(id, data) {
     `;
 
     div.querySelector(".add-funds-btn").onclick = async () => {
-        const amount = parseFloat(prompt("¿Cuánto deseas agregar?"));
-        if (amount) {
+        const amount = await showNumberPrompt("¿Cuánto deseas agregar?", "Agregar Ahorro");
+        if (amount && amount > 0) {
             await updateDoc(doc(db, "goals", id), {
                 currentAmount: data.currentAmount + amount
             });
+            showToast(`Se agregaron $${amount}`, "success");
         }
     };
 
@@ -224,10 +226,13 @@ function calculateStreak(history) {
 }
 
 async function deleteGoal(id) {
-    if (!confirm("¿Eliminar esta meta?")) return;
+    const confirmed = await showConfirm("¿Eliminar esta meta?", "Eliminar Meta");
+    if (!confirmed) return;
     try {
         await deleteDoc(doc(db, "goals", id));
+        showToast("Meta eliminada", "success");
     } catch (e) {
         console.error("Error deleting goal: ", e);
+        showToast("Error al eliminar meta", "error");
     }
 }
